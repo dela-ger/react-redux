@@ -1,35 +1,34 @@
-import { createStore } from 'redux';
+import { createStore } from "redux";
 
-// initial State
 const initialState = {
-    counter: 0
+    count: 0
 };
 
-// Action types
+// create action type
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 
-// Action creators
-const increment = () => {
-    return {type: INCREMENT}
-}
+// action creator
 
-const decrement = () => {
-    return { type: DECREMENT }
-}
+export const increment = () => ({  type: INCREMENT });
 
-// Reducer
+export const decrement = () => {
+    return {
+        type: DECREMENT
+    }
+};
+
+// create the reducer function
 const counterReducer = (state = initialState, action) => {
     if (action.type === INCREMENT) {
-        return { ...state, counter: state.counter + 1 }
-    } else if(action.type === DECREMENT) {
-        return { ...state, counter: state.counter - 1 }
+        return { ...state, count: state.count + 1 }
+    } else if (action.type === DECREMENT) {
+        return { ...state, count: state.count - 1 }
     }else {
-        return state;
+        return state
     }
-}
+};
 
-// create redux store
-const store = createStore(counterReducer);
+const store = createStore(counterReducer)
 
-export { store, increment, decrement }
+export default store;
