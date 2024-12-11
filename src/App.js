@@ -18,8 +18,8 @@ function App() {
       <div>
         <h1>Fetched Data</h1>
         <ul>
-          {data.map(item => {
-            <li key={item.id}>{item.name}</li>
+          {data.map((item) => {
+           return  <li key={item.id}>{item.title}</li>
           })}
         </ul>
       </div>
